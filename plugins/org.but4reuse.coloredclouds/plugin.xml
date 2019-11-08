@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="org.but4reuse.coloredclouds.filter" name="Filters" schema="schema/org.but4reuse.coloredclouds.filter.exsd"/>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="false"
+            id="org.but4reuse.coloredclouds.ShowArtefactColoredCloud"
+            objectClass="org.but4reuse.artefactmodel.Artefact">
+         <action
+               class="org.but4reuse.coloredclouds.ui.actions.ShowArtefactColoredCloud"
+               icon="icons/cloud.png"
+               id="org.but4reuse.coloredclouds.action1"
+               label="Show Colored Cloud">
+         </action>
+      </objectContribution>
+      <objectContribution
+            adaptable="false"
+            id="org.but4reuse.coloredclouds.ShowFeatureColoredCloud"
+            objectClass="org.but4reuse.featurelist.Feature">
+         <action
+               class="org.but4reuse.coloredclouds.ui.actions.ShowFeatureColoredCloud"
+               icon="icons/cloud.png"
+               id="org.but4reuse.coloredclouds.action2"
+               label="Show Colored Cloud">
+         </action>
+      </objectContribution>
+      <objectContribution
+            adaptable="false"
+            id="org.but4reuse.coloredclouds.ShowArtefactColoredCloudIDF"
+            objectClass="org.but4reuse.artefactmodel.Artefact">
+         <action
+               class="org.but4reuse.coloredclouds.ui.actions.ShowArtefactColoredCloudTFIDF"
+               icon="icons/cloud.png"
+               id="org.but4reuse.coloredclouds.action3"
+               label="Show TF-IDF Colored Cloud">
+         </action>
+      </objectContribution>
+      <objectContribution
+            adaptable="false"
+            id="org.but4reuse.coloredclouds.ShowFeatureColoredCloudIDF"
+            objectClass="org.but4reuse.featurelist.Feature">
+         <action
+               class="org.but4reuse.coloredclouds.ui.actions.ShowFeatureColoredCloudTFIDF"
+               icon="icons/cloud.png"
+               id="org.but4reuse.coloredclouds.action4"
+               label="Show TF-IDF Colored CLoud">
+         </action>
+      </objectContribution>
+      <objectContribution
+            adaptable="false"
+            id="org.but4reuse.coloredclouds.ShowArtefactModelColoredCloud"
+            objectClass="org.but4reuse.artefactmodel.ArtefactModel">
+         <action
+               class="org.but4reuse.coloredclouds.ui.actions.ShowArtefactModelColoredCloud"
+               icon="icons/cloud.png"
+               id="org.but4reuse.coloredclouds.action3"
+               label="Show Colored Cloud">
+         </action>
+      </objectContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <view
+            category="org.but4reuse.views.category"
+            class="org.but4reuse.coloredclouds.visualisation.ColoredCloudView"
+            icon="icons/cloud.png"
+            id="org.but4reuse.coloredclouds.view"
+            name="coloredclouds"
+            restorable="true">
+      </view>
+   </extension>
+   <extension
+         point="org.but4reuse.visualisation">
+      <visualisation
+            class="org.but4reuse.coloredclouds.visualisation.WordCloudVisualisation"
+            name="Colored Word Cloud">
+      </visualisation>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="org.but4reuse.coloredclouds.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.but4reuse.visualisation.ui.page"
+            class="org.but4reuse.coloredclouds.preferences.ColoredCloudPreferences"
+            id="org.but4reuse.coloredclouds.page"
+            name="ColoredCloud">
+      </page>
+   </extension>
+   <extension
+         point="org.but4reuse.coloredclouds.filter">
+      <filter
+            class="org.but4reuse.coloredclouds.filters.CamelCaseSplitter"
+            name="CamelCase splitter">
+      </filter>
+      <filter
+            class="org.but4reuse.coloredclouds.filters.IgnoreUpperCaseProcessing"
+            name="Ignore upper case">
+      </filter>
+      <filter
+            class="org.but4reuse.coloredclouds.filters.MultiWordsFilter"
+            name="Multi words (user defined)">
+      </filter>
+      <filter
+            class="org.but4reuse.coloredclouds.filters.NumbersFilter"
+            name="Remove numbers">
+      </filter>
+      <filter
+            class="org.but4reuse.coloredclouds.filters.OneCharFilter"
+            name="Remove one char words">
+      </filter>
+      <filter
+            class="org.but4reuse.coloredclouds.filters.PartOfSpeechTagsFilter"
+            name="Part of speech tags filter">
+      </filter>
+      <filter
+            class="org.but4reuse.coloredclouds.filters.StemmingFilter"
+            name="Stemming filter">
+      </filter>
+      <filter
+            class="org.but4reuse.coloredclouds.filters.StopWordsFilter"
+            name="Stop words (user defined)">
+      </filter>
+      <filter
+            class="org.but4reuse.coloredclouds.filters.SynonymsFilter"
+            name="Synonyms wordnet (expensive)">
+      </filter>
+      <filter
+            class="org.but4reuse.coloredclouds.filters.UserSynonymsFilter"
+            name="Synonyms (user defined)">
+      </filter>
+       <filter
+            class="org.but4reuse.coloredclouds.filters.JavaRemoveGetSetFilter"
+            name="Java remove get and set">
+      </filter>
+       <filter
+            class="org.but4reuse.coloredclouds.filters.JavaRemoveKeywordsFilter"
+            name="Java remove keywords">
+      </filter>
+   </extension>
+
+</plugin>
